@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of afrux/forum-stats-widget.
+ * This file is part of fof/forum-stats-widget.
  *
- * Copyright (c) 2021 Sami Mazouz.
+ * Copyright (c) 2026 FriendsOfFlarum.
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Afrux\ForumStats;
+namespace FoF\ForumStats;
 
 use Flarum\Extend;
 use Flarum\Api\Serializer\ForumSerializer;

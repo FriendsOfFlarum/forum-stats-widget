@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of afrux/forum-stats-widget.
+ * This file is part of fof/forum-stats-widget.
  *
- * Copyright (c) 2021 Sami Mazouz.
+ * Copyright (c) 2026 FriendsOfFlarum.
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Afrux\ForumStats;
+namespace FoF\ForumStats;
 
-use Afrux\ForumWidgets\SafeCacheRepositoryAdapter;
+use FoF\ForumWidgets\SafeCacheRepositoryAdapter;
 use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Post\CommentPost;
 use Flarum\User\User;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use function Afrux\ForumWidgets\Helper\pretty_number_format;
+use function FoF\ForumWidgets\Helper\pretty_number_format;
 
 class AddStatsToApi
 {
@@ -41,7 +41,7 @@ class AddStatsToApi
     {
         $interval = 600;
 
-        $stats = $this->cache->remember('afrux-forum-stats-widget.stats', $interval, function (): array {
+        $stats = $this->cache->remember('fof-forum-stats-widget.stats', $interval, function (): array {
             return [
                 'discussion_count' => Discussion::count(),
                 'user_count' => User::count(),
@@ -50,25 +50,25 @@ class AddStatsToApi
         }) ?: [];
 
         if (empty($stats)) {
-            return ['afrux-forum-stats-widget.stats' => null];
+            return ['fof-forum-stats-widget.stats' => null];
         }
 
         return [
-            'afrux-forum-stats-widget.stats' => [
+            'fof-forum-stats-widget.stats' => [
                 'discussionCount' => [
-                    'label' => $this->translator->trans('afrux-forum-stats-widget.forum.widget.stats.discussion_count'),
+                    'label' => $this->translator->trans('fof-forum-stats-widget.forum.widget.stats.discussion_count'),
                     'icon' => 'far fa-comments',
                     'value' => $stats['discussion_count'],
                     'prettyValue' => pretty_number_format($stats['discussion_count']),
                 ],
                 'userCount' => [
-                    'label' => $this->translator->trans('afrux-forum-stats-widget.forum.widget.stats.user_count'),
+                    'label' => $this->translator->trans('fof-forum-stats-widget.forum.widget.stats.user_count'),
                     'icon' => 'fas fa-users',
                     'value' => $stats['user_count'],
                     'prettyValue' => pretty_number_format($stats['user_count']),
                 ],
                 'commentPostCount' => [
-                    'label' => $this->translator->trans('afrux-forum-stats-widget.forum.widget.stats.comment_post_count'),
+                    'label' => $this->translator->trans('fof-forum-stats-widget.forum.widget.stats.comment_post_count'),
                     'icon' => 'far fa-comment-dots',
                     'value' => $stats['comment_post_count'],
                     'prettyValue' => pretty_number_format($stats['comment_post_count']),
