@@ -16,14 +16,14 @@
     "support": {
         "issues": "https://github.com/FriendsOfFlarum/forum-stats-widget/issues",
         "source": "https://github.com/FriendsOfFlarum/forum-stats-widget",
-        "forum": "https://discuss.flarum.org/"
+        "forum": "https://discuss.flarum.org/d/39066"
     },
     "replace": {
         "afrux/forum-stats-widget": "*"
     },
     "require": {
         "flarum/core": "^1.8.0",
-        "fof/forum-widgets-core": "1.x-dev"
+        "fof/forum-widgets-core": "^1.0.0"
     },
     "require-dev": {
         "flarum/phpstan": "*"
@@ -49,11 +49,11 @@
             "dev-1.x": "1.x-dev"
         },
         "flarum-extension": {
-            "title": "FoF Forum Stats Widget",
+            "title": "FoF Mini Stats Widget",
             "category": "forum-widget",
             "icon": {
                 "name": "fas fa-chart-pie",
-                "backgroundColor": "#e34b6e",
+                "backgroundColor": "#e74c3c",
                 "color": "#fff"
             }
         },
