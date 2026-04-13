@@ -21,20 +21,8 @@ use function FoF\ForumWidgets\Helper\pretty_number_format;
 
 class AddStatsToApi
 {
-    /**
-     * @var SafeCacheRepositoryAdapter
-     */
-    private $cache;
-
-    /**
-     * @var TranslatorInterface
-     */
-    private $translator;
-
-    public function __construct(SafeCacheRepositoryAdapter $cache, TranslatorInterface $translator)
+    public function __construct(private SafeCacheRepositoryAdapter $cache, private TranslatorInterface $translator)
     {
-        $this->cache = $cache;
-        $this->translator = $translator;
     }
 
     public function __invoke(ForumSerializer $serializer)
