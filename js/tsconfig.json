@@ -4,6 +4,7 @@
     "src/**/*",
     "../vendor/flarum/core/js/dist-typings/@types/**/*"
   ],
+  "files": ["src/shims.d.ts"],
   "compilerOptions": {
     "declarationDir": "./dist-typings",
     "baseUrl": ".",
@@ -11,7 +12,7 @@
       "flarum/*": [
         "../vendor/flarum/core/js/dist-typings/*"
       ],
-      "flarum/extensions/fof-forum-widgets-core/*": [
+      "ext:fof/forum-widgets-core/*": [
         "../vendor/fof/forum-widgets-core/js/dist-typings/*"
       ],
       "ext:flarum/extensions": [
