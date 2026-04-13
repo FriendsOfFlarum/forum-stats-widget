@@ -11,8 +11,8 @@
 
 namespace FoF\ForumStats;
 
+use Flarum\Api\Resource;
 use Flarum\Extend;
-use Flarum\Api\Serializer\ForumSerializer;
 
 return [
     (new Extend\Frontend('forum'))
@@ -25,6 +25,6 @@ return [
 
     new Extend\Locales(__DIR__.'/locale'),
 
-    (new Extend\ApiSerializer(ForumSerializer::class))
-        ->attributes(AddStatsToApi::class),
+    (new Extend\ApiResource(Resource\ForumResource::class))
+        ->fields(AddStatsToApi::class),
 ];

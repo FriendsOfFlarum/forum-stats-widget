@@ -1,10 +1,13 @@
 import app from 'flarum/common/app';
 import Tooltip from 'flarum/common/components/Tooltip';
-import icon from 'flarum/common/helpers/icon';
-import Widget from 'flarum/extensions/fof-forum-widgets-core/common/components/Widget';
+import Icon from 'flarum/common/components/Icon';
+import Widget, { WidgetAttrs } from 'ext:fof/forum-widgets-core/common/components/Widget';
 import extractText from 'flarum/common/utils/extractText';
 
-export default class ForumStatsWidgetWidget extends Widget {
+type StatEntry = { label: string; icon: string; value: number; prettyValue: string };
+type StatsData = Record<string, StatEntry>;
+
+export default class ForumStatsWidgetWidget extends Widget<WidgetAttrs> {
   className(): string {
     return 'FoF-ForumStatsWidget';
   }
@@ -18,14 +21,16 @@ export default class ForumStatsWidgetWidget extends Widget {
   }
 
   content() {
-    const stats = app.forum.attribute('fof-forum-stats-widget.stats');
+    const stats = app.forum.attribute('fof-forum-stats-widget.stats') as StatsData;
 
     return (
       <div className="FoF-ForumStatsWidget-grid">
         {Object.keys(stats).map((stat) => (
           <Tooltip text={stats[stat].label}>
             <span className="FoF-ForumStatsWidget-grid-item">
-              <span className="FoF-ForumStatsWidget-grid-item-icon">{icon(stats[stat].icon)}</span>
+              <span className="FoF-ForumStatsWidget-grid-item-icon">
+                <Icon name={stats[stat].icon} />
+              </span>
               <span className="FoF-ForumStatsWidget-grid-item-value">{stats[stat].prettyValue}</span>
             </span>
           </Tooltip>
