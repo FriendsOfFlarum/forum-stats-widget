@@ -2,9 +2,9 @@
   "extends": "flarum-tsconfig",
   "include": [
     "src/**/*",
-    "../vendor/flarum/core/js/dist-typings/@types/**/*"
+    "../vendor/flarum/core/js/dist-typings/@types/**/*",
+    "../vendor/fof/forum-widgets-core/js/dist-typings/@types/**/*"
   ],
-  "files": ["src/shims.d.ts"],
   "compilerOptions": {
     "declarationDir": "./dist-typings",
     "baseUrl": ".",
@@ -14,9 +14,6 @@
       ],
       "ext:fof/forum-widgets-core/*": [
         "../vendor/fof/forum-widgets-core/js/dist-typings/*"
-      ],
-      "ext:flarum/extensions": [
-        "../vendor/flarum/extensions/js/dist-typings/*"
       ]
     }
   }
