@@ -1,6 +1,6 @@
 import app from 'flarum/common/app';
 import Tooltip from 'flarum/common/components/Tooltip';
-import icon from 'flarum/common/helpers/icon';
+import Icon from 'flarum/common/components/Icon';
 import Widget from 'ext:flarum/extensions/fof-forum-widgets-core/common/components/Widget';
 import extractText from 'flarum/common/utils/extractText';
 
@@ -25,7 +25,9 @@ export default class ForumStatsWidgetWidget extends Widget {
         {Object.keys(stats).map((stat) => (
           <Tooltip text={stats[stat].label}>
             <span className="FoF-ForumStatsWidget-grid-item">
-              <span className="FoF-ForumStatsWidget-grid-item-icon">{icon(stats[stat].icon)}</span>
+              <span className="FoF-ForumStatsWidget-grid-item-icon">
+                <Icon name={stats[stat].icon} />
+              </span>
               <span className="FoF-ForumStatsWidget-grid-item-value">{stats[stat].prettyValue}</span>
             </span>
           </Tooltip>
