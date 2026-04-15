@@ -11,8 +11,8 @@
 
 namespace FoF\ForumStats;
 
-use Flarum\Extend;
 use Flarum\Api\Serializer\ForumSerializer;
+use Flarum\Extend;
 
 return [
     (new Extend\Frontend('forum'))
