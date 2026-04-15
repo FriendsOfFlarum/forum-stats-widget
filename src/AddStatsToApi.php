@@ -18,6 +18,7 @@ use Flarum\Settings\SettingsRepositoryInterface;
 use Flarum\User\User;
 use FoF\ForumWidgets\SafeCacheRepositoryAdapter;
 use Symfony\Contracts\Translation\TranslatorInterface;
+
 use function FoF\ForumWidgets\Helper\pretty_number_format;
 
 class AddStatsToApi
@@ -36,8 +37,8 @@ class AddStatsToApi
 
                     $stats = $this->cache->remember('fof-forum-stats-widget.stats', $interval, function (): array {
                         return [
-                            'discussion_count' => Discussion::count(),
-                            'user_count'       => User::count(),
+                            'discussion_count'   => Discussion::count(),
+                            'user_count'         => User::count(),
                             'comment_post_count' => CommentPost::count(),
                         ];
                     }) ?: [];
