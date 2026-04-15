@@ -27,4 +27,7 @@ return [
 
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(AddStatsToApi::class),
+
+    (new Extend\Settings())
+        ->default('fof-forum-stats-widget.decimal_places', 2),
 ];
