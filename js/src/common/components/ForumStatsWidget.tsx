@@ -1,10 +1,10 @@
 import app from 'flarum/common/app';
 import Tooltip from 'flarum/common/components/Tooltip';
 import icon from 'flarum/common/helpers/icon';
-import Widget from 'flarum/extensions/fof-forum-widgets-core/common/components/Widget';
+import Widget, { WidgetAttrs } from 'flarum/extensions/fof-forum-widgets-core/common/components/Widget';
 import extractText from 'flarum/common/utils/extractText';
 
-export default class ForumStatsWidgetWidget extends Widget {
+export default class ForumStatsWidgetWidget extends Widget<WidgetAttrs> {
   className(): string {
     return 'FoF-ForumStatsWidget';
   }
@@ -18,7 +18,7 @@ export default class ForumStatsWidgetWidget extends Widget {
   }
 
   content() {
-    const stats = app.forum.attribute('fof-forum-stats-widget.stats');
+    const stats = app.forum.attribute<Record<string, { label: string; icon: string; prettyValue: string }>>('fof-forum-stats-widget.stats');
 
     return (
       <div className="FoF-ForumStatsWidget-grid">
