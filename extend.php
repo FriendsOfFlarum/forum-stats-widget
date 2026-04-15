@@ -11,8 +11,8 @@
 
 namespace FoF\ForumStats;
 
-use Flarum\Extend;
 use Flarum\Api\Serializer\ForumSerializer;
+use Flarum\Extend;
 
 return [
     (new Extend\Frontend('forum'))
@@ -27,4 +27,7 @@ return [
 
     (new Extend\ApiSerializer(ForumSerializer::class))
         ->attributes(AddStatsToApi::class),
+
+    (new Extend\Settings())
+        ->default('fof-forum-stats-widget.decimal_places', 2),
 ];
