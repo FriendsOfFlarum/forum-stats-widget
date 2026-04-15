@@ -27,4 +27,7 @@ return [
 
     (new Extend\ApiResource(Resource\ForumResource::class))
         ->fields(AddStatsToApi::class),
+
+    (new Extend\Settings())
+        ->default('fof-forum-stats-widget.decimal_places', 2),
 ];
